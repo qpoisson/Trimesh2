@@ -818,6 +818,9 @@ static inline const T angle(const Vec<D,T> &v1, const Vec<D,T> &v2)
 
 // POSIX / C99 compatibility functions for MSVS
 #ifdef _WIN32
+
+#if (_MSC_VER < 1900)
+
 #ifdef cbrt
 # undef cbrt
 #endif
@@ -866,6 +869,8 @@ inline long double trunc(long double x)
 {
 	return (x < 0.0f) ? (long double)(int(x)) : (long double)(int(x));
 }
+#endif
+
 #endif // _WIN32
 
 
